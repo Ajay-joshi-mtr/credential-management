@@ -19,7 +19,7 @@ class UserSeeder extends Seeder
             'email' =>'aakansha@gmail.com',
             'phone' => 98674746,
             'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi',
-            'email_verified' => '2022-01-31 17:38:18' // password
+            'email_verified_at' => '2022-01-31 17:38:18' // password
         ]);
     }
 }

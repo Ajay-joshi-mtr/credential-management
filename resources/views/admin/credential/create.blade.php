@@ -82,18 +82,22 @@
                 </div>
             </div>
             <h4 class="text-center mt-4 mb-4">Credential Additional Fields</h4>
-            <div class="row input-group control-group mb-3">
+            <div class="row input-group control-group increment mb-3">
                 <label for="categoryid" class="col-sm-3 text-end control-label col-form-label">Meta Field</label>
+
                 <div class="col-sm-4">
-                    <input type="text" name="key[]" id="" class="form-control" placeholder="Meta Data Key">
+                    <input type="text" name="key[]" id="" class="form-control" placeholder="Meta Data Key"
+                        value="">
                 </div>
 
                 <div class="col-sm-4">
-                    <input type="text" name="value[]" id="" class="form-control" placeholder="Meta Data Value">
+                    <input type="text" name="value[]" id="" class="form-control" placeholder="Meta Data Value"
+                        value="">
                 </div>
-                <div class="col-sm-1">
+                <div class="col-sm-1 " style="display: flex;">
+                    <a class="btn btn-danger"><i class="fa fa-trash"></i></a> &nbsp;
                     <a class="btn btn-success"><i class="fa fa-plus"></i></a>
-                </div>
+                    </div>
             </div>
 
             <input type="submit" class="btn btn-primary" value="Submit" />

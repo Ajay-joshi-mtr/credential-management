@@ -94,14 +94,11 @@ return false;
 
 <script>
 // var incr = 2;
-$(".btn-success").click(function() {
-    // console.log('gdgdgdg');
-    var html ='<div class="row input-group control-group mb-3"><label for="categoryid" class="col-sm-3 text-end control-label col-form-label">Meta Field</label><div class="col-sm-4"><input type="text" name="key[]" id="" class="form-control" placeholder="Meta Data Key"></div><div class="col-sm-4"><input type="text" name="value[]" id="" class="form-control" placeholder="Meta Data Value"></div><div class="col-sm-1"><a class="btn btn-danger" ><i class="fa fa-trash"></i></a></div></div>';
-    $(".increment").after(html);
-    // var html = '<h1>check</h1>';
-    // incr++;
-    // var html = '<h4>check</h4>';
-    // $(".in").after(html);
+$("body").on("click", ".btn-success", function() {
+
+    var html ='<div class="row input-group control-group mb-3"><label for="categoryid" class="col-sm-3 text-end control-label col-form-label">Meta Field</label><div class="col-sm-4"><input type="text" name="key[]" id="" class="form-control" placeholder="Meta Data Key"></div><div class="col-sm-4"><input type="text" name="value[]" id="" class="form-control" placeholder="Meta Data Value"></div> <div class="col-sm-1 " style="display: flex;"><a class="btn btn-danger"><i class="fa fa-trash"></i></a> &nbsp;<a class="btn btn-success"><i class="fa fa-plus"></i></a></div>';
+    $(".increment").after(html); 
+
 });
 
 $("body").on("click", ".btn-danger", function() {

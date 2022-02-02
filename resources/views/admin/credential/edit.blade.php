@@ -96,33 +96,31 @@
             @php
             $counter=0;
             @endphp
+            <div class="increment"> 
             @foreach($cred as $key => $value)
-            <div class="row input-group control-group increment mb-3">
+            
+            <div class="row input-group control-group mb-3">
                 <label for="categoryid" class="col-sm-3 text-end control-label col-form-label">Meta Field</label>
 
                 <div class="col-sm-4">
                     <input type="text" name="key[]" id="" class="form-control" placeholder="Meta Data Key"
                         value="{{$key}}">
                 </div>
-
                 <div class="col-sm-4">
                     <input type="text" name="value[]" id="" class="form-control" placeholder="Meta Data Value"
                         value="{{$value}}">
                 </div>
-                <div class="col-sm-1">
-                    @if($counter == 0)
+                <div class="col-sm-1 " style="display: flex;">
+                    <a class="btn btn-danger"><i class="fa fa-trash"></i></a> &nbsp;
                     <a class="btn btn-success"><i class="fa fa-plus"></i></a>
-
-                    @else
-                    <a class="btn btn-danger"><i class="fa fa-trash"></i></a>
-                    @endif
                 </div>
             </div>
             @php $counter++; @endphp
             @endforeach
             @else
-            <div class="row input-group control-group increment mb-3">
-                <div class="increment">
+            <div class="increment"> 
+            <div class="row input-group control-group mb-3">
+               
                     <label for="categoryid" class="col-sm-3 text-end control-label col-form-label">Meta Field</label>
 
                     <div class="col-sm-4">
@@ -132,16 +130,16 @@
                     <div class="col-sm-4">
                         <input type="text" name="value[]" id="" class="form-control" placeholder="Meta Data Value">
                     </div>
-                    <div class="col-sm-1">
-                        <a class="btn btn-success"><i class="fa fa-plus"></i></a>
+                    <div class="col-sm-1 " style="display: flex;">
+                    <a class="btn btn-danger"><i class="fa fa-trash"></i></a> &nbsp;
+                    <a class="btn btn-success"><i class="fa fa-plus"></i></a>
                     </div>
-                </div>
+            </div>            
             </div>
             @endif
-
             <input type="submit" class="btn btn-primary" value="Submit" />
         </div>
-
+      
     </form>
 </div>
 @endsection

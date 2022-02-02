@@ -40,7 +40,7 @@
                         <td>{{$key}}</td>
                         <td>{{ucwords($cred->title ?? '')}}</td>
                         <td>{{ucwords($cred->description ?? '')}}</td>
-                        <td>{{ucwords($cred->url ?? '')}}</td>
+                        <td>{!! $cred->url ? '<a href="'.$cred->url.'" target="_blank">'.$cred->url.'</a>' :'' !!}</td>
                         <td>{{ucwords($cred->category->name ?? '')}}</td>
                         <td>
                             <a href="{{route('credential.edit',$cred->id)}}" class="btn btn-info btn-xs"><i class="fas fa-edit"></i></a>

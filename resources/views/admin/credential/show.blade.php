@@ -41,7 +41,8 @@
                         <td>{{ucwords($credential->id ?? '')}}</td>
                         <td>{{ucwords($credential->title ?? '')}}</td>
                         <td>{{ucwords($credential->description ?? '')}}</td>
-                        <td>{{ucwords($credential->url ?? '')}}</td>
+                        <td>{!! $credential->url ? '<a href="'.$credential->url.'" target="_blank">'.$credential->url.'</a>' :'' !!}</td>
+                       
                         @if (Auth::user()->role == 'admin')
 
                         <td>{{ucwords($credential->username ?? '')}}</td>

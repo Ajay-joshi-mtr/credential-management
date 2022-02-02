@@ -38,15 +38,7 @@ class CredentialController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {        
-        $credential = new Credential;
-        $credential->title = $request->input('title');
-        $credential->description = $request->input('description');
-        $credential->url = $request->input('url');
-        $credential->username = $request->input('username');
-        $credential->password = $request->input('password');
-        $credential->category_id = $request->input('category_id');
-
+    {     
         $validated = $request->validate([
 
             'title' =>'required|max:255',
@@ -56,9 +48,17 @@ class CredentialController extends Controller
             'category_id'=>'required',
             'value'=>'unique:meta',
         ]);
-        
+
+        $credential = new Credential;
+        $credential->title = $request->input('title');
+        $credential->description = $request->input('description');
+        $credential->url = $request->input('url');
+        $credential->username = $request->input('username');
+        $credential->password = $request->input('password');
+        $credential->category_id = $request->input('category_id');
         $credential->save();
-        if(is_array($request->key) && count($request->key)>0)
+
+        if(is_array($request->key) && count(array_filter( $request->key))>0)
         {
             $keyString = str_replace(' ', '_',$request->key);
             $metadata = array_combine($keyString, $request->value);
@@ -99,15 +99,6 @@ class CredentialController extends Controller
 
     public function update(Request $request, Credential $credential)
     {      
-       
-       // $user = User::find($id);
-        $credential->title = $request->input('title');
-        $credential->description = $request->input('description');
-        $credential->url = $request->input('url');
-        $credential->username = $request->input('username');
-        $credential->password = $request->input('password');
-        $credential->category_id = $request->input('category_id');
-
         $validated = $request->validate([
 
             'title' =>'required|max:255',
@@ -116,12 +107,18 @@ class CredentialController extends Controller
             'password'=>'required|',
             'category_id'=>'required',
         ]);
-
+       
+       // $user = User::find($id);
+        $credential->title = $request->input('title');
+        $credential->description = $request->input('description');
+        $credential->url = $request->input('url');
+        $credential->username = $request->input('username');
+        $credential->password = $request->input('password');
+        $credential->category_id = $request->input('category_id');
         $credential->update();
-
-        if(is_array($request->key) && count($request->key)>0)
+        $credential->purgeMeta();
+        if(is_array($request->key) && count(array_filter( $request->key))>0)
         {
-    
             $keyString = str_replace(' ', '_',$request->key);
             $metadata = array_combine($keyString,$request->value);
             $credential->syncMeta(array_unique($metadata));
