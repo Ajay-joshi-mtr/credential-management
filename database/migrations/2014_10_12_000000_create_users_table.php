@@ -19,7 +19,7 @@ class CreateUsersTable extends Migration
             $table->string('image')->nullable();
             $table->string('google_id')->nullable();
             $table->string('name');
-            $table->string('email')->unique();
+            $table->string('email',250)->unique();
             $table->enum('role',array('admin','user'));
             $table->string('password');
             $table->bigInteger('phone')->nullable();
